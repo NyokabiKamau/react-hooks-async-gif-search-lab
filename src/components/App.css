@@ -1,0 +1,15 @@
+.container{
+    display: flex;
+    justify-content: space-between;
+}
+
+#search{
+    display: flex;
+    flex-direction: column;
+    align-self: flex-start;
+    width:20%
+}
+
+img{
+    max-height: 200px;
+}

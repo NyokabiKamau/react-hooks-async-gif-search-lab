@@ -7,7 +7,7 @@ function GifSearch({handleSearches}){
 
     function handleSubmit(e) {
             e.preventDefault()
-            handleSearches(search, setSearch)
+            handleSearches(search)
         }
     function handleSearch(e) {
         setSearch(()=>e.target.value)
@@ -16,7 +16,7 @@ function GifSearch({handleSearches}){
     return(
         <form onSubmit={handleSubmit}>
             <label htmlFor="searchBar">Search Gifs</label>
-            <input id="searchBar" placeholder="Search..." className="form-control" onChange={handleSearch} value={search} />
+            <input type="text" id="searchBar" placeholder="Search..." className="form-control" onChange={handleSearch} value={search} />
             <button type="submit" className="btn btn-success">Search</button>
         </form>
     )

@@ -5,7 +5,7 @@ import "bootstrap/dist/css/bootstrap.css";
 import './App.css';
 
 
-const API = "https://api.giphy.com/v1/gifs/search?q=dolphin&api_key=DCAQNHcZK0h3uLSMMKxWad2YPGQJ7Yia&rating=g"
+const API = `https://api.giphy.com/v1/gifs/trending?api_key=DCAQNHcZK0h3uLSMMKxWad2YPGQJ7Yia&limit=6&rating=g`
 
 
 function GifListContainer() {
@@ -22,30 +22,27 @@ function GifListContainer() {
 
 
 
-    function handleSearches(text, setText) {
-        let query = text
-        const SEARCH_API = `https://api.giphy.com/v1/gifs/search?q=${query}&api_key=DCAQNHcZK0h3uLSMMKxWad2YPGQJ7Yia&limit=3&rating=g`
+    function handleSearches(query) {
+        const SEARCH_API = `https://api.giphy.com/v1/gifs/search?q=${query}&api_key=DCAQNHcZK0h3uLSMMKxWad2YPGQJ7Yia&limit=6&rating=g`
         fetch(SEARCH_API)
         .then(response=>response.json())
         .then(item=>{
             setGiphy(() => item.data.map((gif) => gif.images.original.url))
         })
-
-        setText(()=>"")
     }
 
     
     return (
        <div className="container">
+        
         <div>
             <GifList giphy={giphy}/>
         </div>
         <div id="search">
-            <GifSearch handleSearch={handleSearches}/>
+            <GifSearch handleSearches={handleSearches}/>
         </div>
        </div>
     )
 }
 
 export default GifListContainer
-

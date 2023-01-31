@@ -1,9 +1,10 @@
+
 import React,{} from "react";
 
 function GifList({giphy}){
 
     const gifList = giphy.map((gif,index)=>(
-        <li key={index} >
+        <li key={`giphy_` + index} >
             <img src={gif} alt="giphy" />
         </li>
     ))
